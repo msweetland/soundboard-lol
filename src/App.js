@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import Musburger from './Musburger';
 import './App.css';
 
 class App extends Component {
@@ -6,8 +8,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      moneySound: 'http://soundbible.com/mp3/Cash%20Register%20Cha%20Ching-SoundBible.com-184076484.mp3',
-      rapHornSound: 'https://www.myinstants.com/media/sounds/air-horn-club-sample_1.mp3'
+      money: 'http://soundbible.com/mp3/Cash%20Register%20Cha%20Ching-SoundBible.com-184076484.mp3',
+      rapHorn: 'https://www.myinstants.com/media/sounds/air-horn-club-sample_1.mp3',
     };
   }
 
@@ -18,8 +20,9 @@ class App extends Component {
   render() {
     return (
       <div className="stage">
-        <button className="btn btn-info" onClick={() => this.playSound(this.state.moneySound)}>cash money</button>
-        <button className="btn btn-info" onClick={() => this.playSound(this.state.rapHornSound)}>rapHorn</button>
+        <button className="btn btn-info" onClick={() => this.playSound(this.state.money)}>cash money</button>
+        <button className="btn btn-info" onClick={() => this.playSound(this.state.rapHorn)}>rapHorn</button>
+        <Musburger />
       </div>
     );
   }
