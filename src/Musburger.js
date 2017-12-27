@@ -35,21 +35,25 @@ class Musburger extends Component {
 
   render() {
     return (
-      <div
-        className="musburger wiggler"
-        onClick={() => this.playSound()}
-        onKeyPress={() => {}}
-      >
-        <img
-          className="musburger-head"
-          src="./musburgerhead.png"
-          alt=""
-        />
-        <img
-          className={this.state.isPlaying ? 'musburger-mouth talk' : 'musburger-mouth'}
-          src="./musburgermouth.png"
-          alt=""
-        />
+      <div>
+        <div
+          className="musburger wiggler"
+        >
+          <img
+            className="musburger-head"
+            src="./musburgerhead.png"
+            alt=""
+            onClick={() => this.playSound()}
+            onKeyPress={() => {}}
+          />
+          <img
+            className={this.state.isPlaying ? 'musburger-mouth talk' : 'musburger-mouth'}
+            src="./musburgermouth.png"
+            alt=""
+            onClick={() => this.playSound()}
+            onKeyPress={() => {}}
+          />
+        </div>
       </div>
     );
   }

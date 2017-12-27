@@ -23,6 +23,7 @@ class App extends Component {
         <button className="btn btn-info" onClick={() => this.playSound(this.state.money)}>cash money</button>
         <button className="btn btn-info" onClick={() => this.playSound(this.state.rapHorn)}>rapHorn</button>
         <Musburger />
+        <button className="btn btn-info" onClick={() => this.playSound(this.state.rapHorn)}>rapHorn</button>
       </div>
     );
   }
