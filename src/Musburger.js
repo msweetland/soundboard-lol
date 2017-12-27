@@ -4,20 +4,33 @@ import './Musburger.css';
 class Musburger extends Component {
   constructor(props) {
     super(props);
-    const sound = new window.Audio('https://www.myinstants.com/media/sounds/air-horn-club-sample_1.mp3');
+    const s0 = new window.Audio('./babyOver.mp3');
+    const s1 = new window.Audio('./tostidos.mp3');
+    const s2 = new window.Audio('./bamaGirl.mp3');
+    const s3 = new window.Audio('./kiddingMe.mp3');
     this.state = {
       isPlaying: false,
-      sound
+      sounds: [
+        s0,
+        s2,
+        s1,
+        s3
+      ],
+      index: 0
     };
   }
 
   playSound = () => {
-    this.setState({isPlaying: true});
-    this.state.sound.play();
-    const wait = this.state.sound.duration * 1000;
-    window.setTimeout(() => {
-      this.setState({isPlaying: false});
-    }, wait);
+    if (!this.state.isPlaying) {
+      this.setState({isPlaying: true});
+      this.state.sounds[this.state.index].play();
+      const wait = this.state.sounds[this.state.index].duration * 1000;
+      window.setTimeout(() => {
+        let index = this.state.index + 1;
+        if (index === this.state.sounds.length) { index = 0; }
+        this.setState({isPlaying: false, index});
+      }, wait);
+    }
   }
 
   render() {
