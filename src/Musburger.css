@@ -20,6 +20,13 @@
   z-index:-1;
 }
 
+/* safari and chrome */
+ @-webkit-keyframes wiggle {
+ 	0% {-webkit-transform:rotate(8deg);}
+ 	50% {-webkit-transform:rotate(-8deg);}
+ 	100% {-webkit-transform:rotate(8deg);}
+ }
+
 @keyframes wiggle {
 	0% {transform:rotate(8deg);}
 	50% {transform:rotate(-8deg);}
@@ -27,7 +34,14 @@
 }
 
 .wiggler {
+  -webkit-animation: wiggle 3s infinite;
 	animation: wiggle 3s infinite;
+}
+
+@-webkit-keyframes talking {
+  0% {transform: translate(0px, 0px);}
+  50% {transform: translate(0px, 5%);}
+  100% {transform: translate(0px, 0px);}
 }
 
 @keyframes talking {
@@ -37,5 +51,6 @@
 }
 
 .talk {
+  -webkit-animation: talking 0.19s infinite;
   animation: talking 0.19s infinite;
 }
