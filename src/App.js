@@ -21,7 +21,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="stage">
+      <div className="stage" style={{marginTop: '5vh'}}>
         <Musburger />
         <RapHorn />
       </div>

@@ -1,4 +1,10 @@
 .airhorn {
-  width: 200px;
-  height: auto;
+  width: 150px;
+  height: 288px;
+}
+
+.airhorn-holder {
+  display: flex;
+  justify-content: center;
+  position: relative;
 }

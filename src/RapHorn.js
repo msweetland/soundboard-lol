@@ -15,10 +15,10 @@ class RapHorn extends Component {
 
   render() {
     return (
-      <div>
+      <div className="airhorn-holder">
         <img
           className="airhorn"
-          src="./airhorn.png"
+          src="./airHorn.png"
           alt=""
           onClick={() => this.playSound()}
           onKeyPress={() => {}}

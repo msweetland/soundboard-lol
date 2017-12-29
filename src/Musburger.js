@@ -21,39 +21,59 @@ class Musburger extends Component {
       ],
       index: 0
     };
+    this.playRandomSound = this.playRandomSound.bind(this);
   }
 
-  playSound = () => {
+  playRandomSound = () => {
     if (!this.state.isPlaying) {
-      this.state.sounds[this.state.index][0].play();
       this.setState({isPlaying: true});
-      window.setTimeout(() => {
-        let index = this.state.index + 1;
-        if (index === this.state.sounds.length) { index = 0; }
-        this.setState({isPlaying: false, index});
-      }, this.state.sounds[this.state.index][1]);
+      this.state.sounds[this.state.index][0].play().then(() => {
+        window.setTimeout(() => {
+          let index = this.state.index + 1;
+          if (index === this.state.sounds.length) { index = 0; }
+          this.setState({isPlaying: false, index});
+        }, this.state.sounds[this.state.index][1]);
+      });
     }
   }
 
+  playSound = (index) => {
+    if (!this.state.isPlaying) {
+      this.setState({isPlaying: true});
+      this.state.sounds[index][0].play().then(() => {
+        window.setTimeout(() => {
+          this.setState({isPlaying: false});
+        }, this.state.sounds[index][1]);
+      });
+    }
+  }
+
+
   render() {
     return (
-      <div
-        className="musburger wiggler"
-      >
-        <img
-          className="musburger-head"
-          src="./musburgerhead.png"
-          alt=""
-          onClick={() => this.playSound()}
+      <div style={{margin: '50px'}}>
+        <div
+          className="musburger"
+          onClick={() => this.playRandomSound()}
           onKeyPress={() => {}}
-        />
-        <img
-          className={this.state.isPlaying ? 'musburger-mouth talk' : 'musburger-mouth'}
-          src="./musburgermouth.png"
-          alt=""
-          onClick={() => this.playSound()}
-          onKeyPress={() => {}}
-        />
+        >
+          <img
+            className="musburger-head"
+            src="./musburgerhead.png"
+            alt=""
+          />
+          <img
+            className={this.state.isPlaying ? 'musburger-mouth talk' : 'musburger-mouth'}
+            src="./musburgermouth.png"
+            alt=""
+          />
+        </div>
+        <div className="musburger-buttons">
+          <button className="button-3d" onClick={() => this.playSound(0)} >Over</button>
+          <button className="button-3d" onClick={() => this.playSound(1)} >Tostitos</button>
+          <button className="button-3d" onClick={() => this.playSound(2)} >Wow!</button>
+          <button className="button-3d" onClick={() => this.playSound(3)} >Kidding</button>
+        </div>
       </div>
     );
   }
